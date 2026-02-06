@@ -1,0 +1,10 @@
+export default function Home() {
+  return (
+    <main className="container">
+      <div className="card">
+        <h1>Coming Soon</h1>
+        <p>We're working on something awesome. Stay tuned!</p>
+      </div>
+    </main>
+  )
+}
