@@ -67,7 +67,6 @@ export const projects = [
     stack: ['Rust', 'wgpu'],
     license: 'Apache 2.0',
     accent: '#e0584f',
-    badge: 'Alpha',
     install: 'brew install --cask jhasubhash/tap/oneprompt',
     features: [
       ['Written by hand', 'New text is traced along each letter’s pen path as the ink bleeds and dries.'],

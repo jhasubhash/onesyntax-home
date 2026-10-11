@@ -138,17 +138,18 @@ video.hero-shot { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: c
 .hot:hover { background: rgba(255,255,255,.08); transform: translateY(-2px); }
 .hot:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .hot .ring { position: absolute; inset: -2px; border-radius: 14px; border: 2px solid var(--accent); opacity: 0; pointer-events: none;
-  box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 70%, transparent), inset 0 0 12px color-mix(in srgb, var(--accent) 35%, transparent);
-  animation: ping 3.6s ease-out var(--d, 0s) infinite; }
+  box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 70%, transparent), inset 0 0 12px color-mix(in srgb, var(--accent) 35%, transparent); }
+/* one pulse per widget, in a wave, the first time the dock scrolls into view; afterwards the ring shows on hover only */
+.dockw.seen .hot .ring { animation: ping 1.8s ease-out var(--d, 0s) 1 both; }
 @keyframes ping {
   0% { opacity: 0; transform: scale(.94); }
   12% { opacity: .95; }
   55%, 100% { opacity: 0; transform: scale(1.12); }
 }
 .dockw.touched .hot .ring { animation: none; }
-.hot:hover .ring { animation: none; opacity: .75; transform: none; }
+.dockw .hot:hover .ring, .dockw.seen .hot:hover .ring { animation: none; opacity: .75; transform: none; }
 .hot.on { background: rgba(255,255,255,.1); }
-.hot.on .ring { animation: none; opacity: 1; transform: none; }
+.dockw .hot.on .ring, .dockw.seen .hot.on .ring { animation: none; opacity: 1; transform: none; }
 
 .dock-hint { position: absolute; left: 50%; top: -42px; transform: translateX(-50%); z-index: 3; pointer-events: none; white-space: nowrap;
   display: inline-flex; align-items: center; gap: 8px; padding: 5px 13px; font-size: 13px; font-weight: 500; color: var(--accent);
@@ -180,7 +181,6 @@ video.hero-shot { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: c
 @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .hot .ring { animation: none; opacity: .4; }
-  .dockw.touched .hot .ring { opacity: 0; }
+  .dockw.seen .hot .ring { animation: none; }
   .dock-hint, .dock-hint i, .pop-in { animation: none; }
 }

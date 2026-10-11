@@ -8,8 +8,21 @@ export default function DockWidgets({ dock, placement = 'above', hint }) {
   const [active, setActive] = useState(null)
   const [pos, setPos] = useState({})
   const [touched, setTouched] = useState(false)
+  const [seen, setSeen] = useState(false)
 
   const close = useCallback(() => setActive(null), [])
+
+  // play the one-off "these are clickable" pulse the first time the dock is properly on screen
+  useEffect(() => {
+    const el = wrap.current
+    if (!el || typeof IntersectionObserver === 'undefined') return
+    const io = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setSeen(true); io.disconnect() } },
+      { threshold: 0.6 }
+    )
+    io.observe(el)
+    return () => io.disconnect()
+  }, [])
 
   const open = (w) => {
     setTouched(true)
@@ -50,7 +63,7 @@ export default function DockWidgets({ dock, placement = 'above', hint }) {
   const current = dock.widgets.find((w) => w.id === active)
 
   return (
-    <div className={`dockw ${placement}${touched ? ' touched' : ''}`} ref={wrap}>
+    <div className={`dockw ${placement}${touched ? ' touched' : ''}${seen ? ' seen' : ''}`} ref={wrap}>
       <img src={dock.src} alt={dock.alt} width={dock.w} height={dock.h} loading="lazy" draggable={false} />
       {hint && !touched && (
         <span className="dock-hint" aria-hidden="true">{hint}<i>↓</i></span>
