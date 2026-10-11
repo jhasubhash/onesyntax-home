@@ -62,7 +62,8 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8p
 footer a:hover { color: var(--text); }
 
 @media (max-width: 860px) {
-  .project { grid-template-columns: 1fr; gap: 32px; padding: 48px 0; }
+  .project { grid-template-columns: minmax(0, 1fr); gap: 32px; padding: 48px 0; }
+  .copy-col, .shots { min-width: 0; }
   .project.flip .copy-col { order: 0; }
   .nav nav { gap: 14px; }
   .hero { padding: 56px 0 36px; }
@@ -71,7 +72,7 @@ footer a:hover { color: var(--text); }
 /* OneCast dock as a full-width divider: a dock resting on a soft "desktop" glow */
 .dock-divider { position: relative; margin: 8px calc(50% - 50vw) 0; padding: 56px 20px 64px; display: flex; justify-content: center;
   background: radial-gradient(ellipse 60% 100% at 50% 100%, color-mix(in srgb, var(--accent) 28%, transparent), transparent 70%);
-  border-top: 1px solid var(--line); }
+  }
 .dock-divider::before { content: ""; position: absolute; left: 50%; bottom: 40px; width: min(1000px, 80vw); height: 40px; transform: translateX(-50%);
   background: color-mix(in srgb, var(--accent) 45%, transparent); filter: blur(38px); opacity: .55; border-radius: 50%; }
 .dock-divider img { position: relative; width: min(1194px, 100%); height: auto; border-radius: 26px;
@@ -92,11 +93,33 @@ footer a:hover { color: var(--text); }
 .notif .bell { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: rgba(255,255,255,.22); }
 .notif .x { opacity: .55; font-size: 18px; line-height: 1; }
 @media (max-width: 860px) {
-  .notif { width: 200px; font-size: 12px; padding: 7px 10px 7px 8px; }
+  .project:has(> .notif-layer) { padding-bottom: 190px; }
+  .notif-layer { overflow: hidden; }
+  .notif { width: 225px; font-size: 12px; padding: 7px 10px 7px 8px; left: auto !important; top: auto !important;
+    transform: translate(var(--tx, 0), 0) rotate(var(--r, 0deg)) scale(var(--s, 1)); }
+  .notif:nth-child(1) { right: 4%; bottom: 126px; }
+  .notif:nth-child(2) { left: 4%; bottom: 70px; }
+  .notif:nth-child(3) { right: 6%; bottom: 14px; }
   .notif.extra { display: none; }
+  .dock-divider { justify-content: flex-start; overflow-x: auto; padding: 36px 16px 44px; margin-top: 0; }
+  .dock-divider img { flex: none; width: 720px; max-width: none; }
+}
+@media (max-width: 480px) {
+  .nav { padding: 12px 16px; }
+  .nav nav { gap: 12px; font-size: 13px; }
+  main, footer { padding-left: 16px; padding-right: 16px; }
+  .project h2 { font-size: 2.1rem; }
+  .cmd code { font-size: 12px; white-space: normal; word-break: break-all; }
 }
 
 .project:has(> .notif-layer) { padding-bottom: 130px; }
 
 video.hero-shot { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px; border: 1px solid var(--line);
   box-shadow: 0 20px 50px rgba(0,0,0,.45); background: #000; }
+
+/* Vertical OneCast dock docked to the right edge of the screenshots */
+.shots { position: relative; }
+.shots img.side-dock { position: absolute; z-index: 2; right: -74px; top: 18%; width: 88px; height: auto; border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 0 0 1px rgba(0,0,0,.4), 0 24px 60px rgba(0,0,0,.6), 0 0 60px color-mix(in srgb, var(--accent) 25%, transparent); will-change: transform, opacity; }
+@media (max-width: 1320px) { .shots img.side-dock { display: none; } }

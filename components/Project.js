@@ -1,5 +1,6 @@
 import CopyCommand from './CopyCommand'
 import AutoVideo from './AutoVideo'
+import SideDock from './SideDock'
 import NotificationScatter from './NotificationScatter'
 
 export default function Project({ p, flip }) {
@@ -34,6 +35,7 @@ export default function Project({ p, flip }) {
         <p className="stack">{p.stack.join(' · ')}</p>
       </div>
       <div className="shots">
+        {p.sideDock && <SideDock {...p.sideDock} />}
         {p.video ? (
           <AutoVideo {...p.video} />
         ) : (

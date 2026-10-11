@@ -28,6 +28,8 @@ export const projects = [
       { text: 'Call mom', bg: '#ff3862', fg: '#fff', x: 57, y: 91, rot: -4, depth: 0.3 },
       { text: 'Water the plants', bg: '#34d158', fg: '#06210f', x: 79, y: 92, rot: 4, depth: -0.25 },
     ],
+    // Vertical dock hugging the right edge of the screenshots (desktop only).
+    sideDock: { src: '/onecast/dock-vertical.png', alt: 'A vertical OneCast dock with AirDrop, usage, CPU, RAM and network widgets', w: 88, h: 611 },
     // Shown full width under the section, styled as a dock sitting on a desktop.
     dock: { src: '/onecast/dock.png', alt: 'A custom OneCast dock with live widgets', w: 1194, h: 88 },
     links: [
