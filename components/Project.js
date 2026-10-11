@@ -35,7 +35,7 @@ export default function Project({ p, flip }) {
         <p className="stack">{p.stack.join(' · ')}</p>
       </div>
       <div className="shots">
-        {p.sideDock && <SideDock {...p.sideDock} />}
+        {p.sideDock && <SideDock dock={p.sideDock} />}
         {p.video ? (
           <AutoVideo {...p.video} />
         ) : (

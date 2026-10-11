@@ -29,9 +29,29 @@ export const projects = [
       { text: 'Water the plants', bg: '#34d158', fg: '#06210f', x: 79, y: 92, rot: 4, depth: -0.25 },
     ],
     // Vertical dock hugging the right edge of the screenshots (desktop only).
-    sideDock: { src: '/onecast/dock-vertical.png', alt: 'A vertical OneCast dock with AirDrop, usage, CPU, RAM and network widgets', w: 88, h: 611 },
+    sideDock: {
+      src: '/onecast/dock-vertical.png', alt: 'A vertical OneCast dock with AirDrop, usage, CPU, RAM and network widgets', w: 88, h: 611,
+      widgets: [
+      { id: 'airdrop', label: 'AirDrop', x: 26, y: 27, w: 48, h: 44, shot: { src: '/onecast/widgets/airdrop.png', w: 344, h: 159 } },
+      { id: 'aiusage', label: 'AI Usage', x: 26, y: 80, w: 48, h: 98, shot: { src: '/onecast/widgets/aiusage.png', w: 344, h: 482 } },
+      { id: 'system', label: 'System Activity', x: 26, y: 188, w: 48, h: 205, shot: { src: '/onecast/widgets/system.png', w: 364, h: 384 } },
+      { id: 'network', label: 'Network', x: 26, y: 403, w: 48, h: 98, shot: { src: '/onecast/widgets/network.png', w: 364, h: 275 } },
+      { id: 'habit', label: 'Daily LeetCode', x: 26, y: 510, w: 48, h: 44, shot: { src: '/onecast/widgets/habit.png', w: 354, h: 596 } },
+      ],
+    },
     // Shown full width under the section, styled as a dock sitting on a desktop.
-    dock: { src: '/onecast/dock.png', alt: 'A custom OneCast dock with live widgets', w: 1194, h: 88 },
+    dock: {
+      src: '/onecast/dock.png', alt: 'A custom OneCast dock with live widgets', w: 1194, h: 88,
+      hint: 'Click a widget',
+      widgets: [
+      // x/y/w/h are the widget tile's exact pixel bounds in the dock image; shot is the real detail view captured from the app.
+      { id: 'stock', label: 'Stock', x: 108, y: 26, w: 209, h: 48, shot: { src: '/onecast/widgets/stock.png', w: 344, h: 403 } },
+      { id: 'nowplaying', label: 'Now Playing', x: 323, y: 26, w: 209, h: 48, shot: { src: '/onecast/widgets/nowplaying.png', w: 364, h: 433 } },
+      { id: 'reminders', label: 'Reminders', x: 538, y: 26, w: 209, h: 48, shot: { src: '/onecast/widgets/reminders.png', w: 344, h: 188 } },
+      { id: 'calendar', label: 'Calendar', x: 753, y: 26, w: 209, h: 48, shot: { src: '/onecast/widgets/calendar.png', w: 344, h: 166 } },
+      { id: 'presentation', label: 'Presentation Mode', x: 968, y: 26, w: 102, h: 48, shot: { src: '/onecast/widgets/presentation.png', w: 344, h: 193 } },
+      ],
+    },
     links: [
       ['GitHub', 'https://github.com/jhasubhash/onecast'],
       ['Releases', 'https://github.com/jhasubhash/onecast/releases/latest'],

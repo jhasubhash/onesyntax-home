@@ -1,6 +1,7 @@
 import { Fragment } from 'react'
 import Head from 'next/head'
 import Project from '../components/Project'
+import DockWidgets from '../components/DockWidgets'
 import { projects, site } from '../data/projects'
 
 export default function Home() {
@@ -41,7 +42,7 @@ export default function Home() {
             <Project p={p} flip={i % 2 === 1} />
             {p.dock && (
               <div className="dock-divider" style={{ '--accent': p.accent }}>
-                <img src={p.dock.src} alt={p.dock.alt} width={p.dock.w} height={p.dock.h} loading="lazy" />
+                <DockWidgets dock={p.dock} placement="above" hint={p.dock.hint} />
               </div>
             )}
           </Fragment>
