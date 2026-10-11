@@ -19,8 +19,14 @@ export const projects = [
     ],
     images: [
       { src: '/onecast/launcher.png', alt: 'The OneCast launcher', w: 750, h: 475 },
-      { src: '/onecast/notifications.png', alt: 'OneCast notification cards in nine colours', w: 882, h: 302, wide: true },
-      { src: '/onecast/ai-chat.png', alt: 'AI chat in the OneCast palette', w: 750, h: 475 },
+      { src: '/onecast/stock-quotes.png', alt: 'A Stock Quotes plugin rendered in the OneCast palette', w: 750, h: 475 },
+    ],
+    // Coloured notification cards resting along the bottom of the section, above the dock. x/y are % of the section; depth sets scroll parallax.
+    notifications: [
+      { text: 'Drink a glass of water', bg: '#0a8cff', fg: '#fff', x: 51, y: 82, rot: -5, depth: 0.25 },
+      { text: 'Grab coffee with Sam', bg: '#ffd60a', fg: '#2a2200', x: 76, y: 85, rot: 5, depth: -0.3 },
+      { text: 'Call mom', bg: '#ff3862', fg: '#fff', x: 57, y: 91, rot: -4, depth: 0.3 },
+      { text: 'Water the plants', bg: '#34d158', fg: '#06210f', x: 79, y: 92, rot: 4, depth: -0.25 },
     ],
     // Shown full width under the section, styled as a dock sitting on a desktop.
     dock: { src: '/onecast/dock.png', alt: 'A custom OneCast dock with live widgets', w: 1194, h: 88 },
@@ -47,9 +53,9 @@ export const projects = [
       ['Every theme, its own way', 'Tsushima, Chalkboard and Logbook each animate in their own style.'],
       ['A real terminal', 'Tabs, splits, find with regex, clickable links, IME, mouse and images.'],
     ],
+    video: { src: '/oneprompt/demo.mp4', poster: '/oneprompt/demo-poster.jpg', label: 'OnePrompt demo', w: 1280, h: 720 },
     images: [
       { src: '/oneprompt/tsushima-light.jpg', alt: 'OnePrompt, Tsushima light theme', w: 1600, h: 1000 },
-      { src: '/oneprompt/tsushima-dark.jpg', alt: 'OnePrompt, Tsushima dark theme', w: 1600, h: 1000 },
       { src: '/oneprompt/chalkboard-slate.jpg', alt: 'OnePrompt, Chalkboard theme', w: 1600, h: 1000 },
     ],
     links: [
