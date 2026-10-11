@@ -76,7 +76,7 @@ export const projects = [
     ],
     video: { src: '/oneprompt/demo.mp4', poster: '/oneprompt/demo-poster.jpg', label: 'OnePrompt demo', w: 1280, h: 720 },
     images: [
-      { src: '/oneprompt/tsushima-light.jpg', alt: 'OnePrompt, Tsushima light theme', w: 1600, h: 1000 },
+      { src: '/oneprompt/logbook-day.jpg', alt: 'OnePrompt, Logbook light theme', w: 1600, h: 1000 },
       { src: '/oneprompt/chalkboard-slate.jpg', alt: 'OnePrompt, Chalkboard theme', w: 1600, h: 1000 },
     ],
     links: [
