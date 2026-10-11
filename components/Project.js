@@ -10,7 +10,7 @@ export default function Project({ p, flip }) {
   const wide = rest.filter((i) => i.wide)
   const thumbs = rest.filter((i) => !i.wide)
   return (
-    <section id={p.id} className={`project${flip ? ' flip' : ''}`} style={{ '--accent': p.accent }}>
+    <section id={p.id} className={`project${flip ? ' flip' : ''}${p.video ? ' big-media' : ''}`} style={{ '--accent': p.accent }}>
       {p.notifications && <NotificationScatter items={p.notifications} />}
       <div className="copy-col">
         <div className="meta">

@@ -171,7 +171,15 @@ video.hero-shot { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: c
 .pop-x:hover { background: #262c37; }
 .pop-backdrop { display: none; }
 
+/* sections led by a video: give the media most of the width and let it reach into the left margin */
+.project.big-media { grid-template-columns: minmax(0, 1.4fr) minmax(0, .92fr); gap: 40px; }
+.project.big-media .shots { margin-left: -44px; }
+.project.big-media .cmd code { font-size: 12px; }
+@media (max-width: 1100px) { .project.big-media .cmd code { white-space: normal; word-break: break-all; } }
+
 @media (max-width: 860px) {
+  .project.big-media { grid-template-columns: minmax(0, 1fr); }
+  .project.big-media .shots { margin-left: 0; }
   .dock-hint { left: 175px; }
   .pop-backdrop { display: block; position: fixed; inset: 0; z-index: 39; background: rgba(0,0,0,.6); animation: fade .2s ease-out both; }
   .pop { position: fixed; z-index: 40; left: 50% !important; top: 50% !important; right: auto !important; bottom: auto !important;
