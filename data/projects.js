@@ -19,9 +19,11 @@ export const projects = [
     ],
     images: [
       { src: '/onecast/launcher.png', alt: 'The OneCast launcher', w: 750, h: 475 },
-      { src: '/onecast/dock.png', alt: 'A custom OneCast dock with live widgets', w: 750, h: 200 },
+      { src: '/onecast/notifications.png', alt: 'OneCast notification cards in nine colours', w: 882, h: 302, wide: true },
       { src: '/onecast/ai-chat.png', alt: 'AI chat in the OneCast palette', w: 750, h: 475 },
     ],
+    // Shown full width under the section, styled as a dock sitting on a desktop.
+    dock: { src: '/onecast/dock.png', alt: 'A custom OneCast dock with live widgets', w: 1194, h: 88 },
     links: [
       ['GitHub', 'https://github.com/jhasubhash/onecast'],
       ['Releases', 'https://github.com/jhasubhash/onecast/releases/latest'],
@@ -46,9 +48,9 @@ export const projects = [
       ['A real terminal', 'Tabs, splits, find with regex, clickable links, IME, mouse and images.'],
     ],
     images: [
+      { src: '/oneprompt/tsushima-light.jpg', alt: 'OnePrompt, Tsushima light theme', w: 1600, h: 1000 },
       { src: '/oneprompt/tsushima-dark.jpg', alt: 'OnePrompt, Tsushima dark theme', w: 1600, h: 1000 },
       { src: '/oneprompt/chalkboard-slate.jpg', alt: 'OnePrompt, Chalkboard theme', w: 1600, h: 1000 },
-      { src: '/oneprompt/logbook-day.jpg', alt: 'OnePrompt, Logbook theme', w: 1600, h: 1000 },
     ],
     links: [
       ['GitHub', 'https://github.com/jhasubhash/oneprompt'],

@@ -2,6 +2,8 @@ import CopyCommand from './CopyCommand'
 
 export default function Project({ p, flip }) {
   const [hero, ...rest] = p.images
+  const wide = rest.filter((i) => i.wide)
+  const thumbs = rest.filter((i) => !i.wide)
   return (
     <section id={p.id} className={`project${flip ? ' flip' : ''}`} style={{ '--accent': p.accent }}>
       <div className="copy-col">
@@ -28,8 +30,11 @@ export default function Project({ p, flip }) {
       </div>
       <div className="shots">
         <img className="hero-shot" src={hero.src} alt={hero.alt} width={hero.w} height={hero.h} />
+        {wide.map((i) => (
+          <img key={i.src} src={i.src} alt={i.alt} width={i.w} height={i.h} loading="lazy" />
+        ))}
         <div className="thumbs">
-          {rest.map((i) => (
+          {thumbs.map((i) => (
             <img key={i.src} src={i.src} alt={i.alt} width={i.w} height={i.h} loading="lazy" />
           ))}
         </div>

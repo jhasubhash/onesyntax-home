@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import Head from 'next/head'
 import Project from '../components/Project'
 import { projects, site } from '../data/projects'
@@ -35,7 +36,16 @@ export default function Home() {
             ))}
           </div>
         </section>
-        {projects.map((p, i) => <Project key={p.id} p={p} flip={i % 2 === 1} />)}
+        {projects.map((p, i) => (
+          <Fragment key={p.id}>
+            <Project p={p} flip={i % 2 === 1} />
+            {p.dock && (
+              <div className="dock-divider" style={{ '--accent': p.accent }}>
+                <img src={p.dock.src} alt={p.dock.alt} width={p.dock.w} height={p.dock.h} loading="lazy" />
+              </div>
+            )}
+          </Fragment>
+        ))}
       </main>
       <footer>
         <span>&copy; {new Date().getFullYear()} Subhash Jha</span>
