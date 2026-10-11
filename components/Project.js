@@ -28,6 +28,7 @@ export default function Project({ p, flip }) {
         </ul>
         <CopyCommand command={p.install} />
         <div className="links">
+          <a className="more-link" href={`/${p.id}`}>Explore {p.name} &rarr;</a>
           {p.links.map(([label, href]) => (
             <a key={href} href={href} target="_blank" rel="noopener noreferrer">{label} &rarr;</a>
           ))}
