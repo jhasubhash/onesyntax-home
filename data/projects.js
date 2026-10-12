@@ -10,7 +10,7 @@ export const projects = [
     stack: ['Swift 6', 'SwiftUI', 'AppKit'],
     license: 'AGPL-3.0',
     accent: '#58a6ff',
-    install: 'brew install --cask jhasubhash/onecast/onecast',
+    install: 'brew install --cask jhasubhash/tap/onecast',
     features: [
       ['Docks, as many as you want', 'Your own docks on any edge of any display, with 21 built-in live widgets.'],
       ['A scheduler that speaks English', '"Remind me to stretch every weekday at 4pm" and press return.'],

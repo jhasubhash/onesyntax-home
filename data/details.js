@@ -134,8 +134,8 @@ export const details = {
       ['Try the scheduler', 'Type "remind me to drink water in 2 hours" and press ↵.'],
     ],
     install: [
-      ['Apple silicon', 'brew install --cask jhasubhash/onecast/onecast'],
-      ['Intel', 'brew install --cask jhasubhash/onecast/onecast-universal'],
+      ['Apple silicon', 'brew install --cask jhasubhash/tap/onecast'],
+      ['Intel', 'brew install --cask jhasubhash/tap/onecast-universal'],
     ],
     installNote:
       'Or grab a DMG from Releases. Every build is signed with a Developer ID and notarized by Apple, and OneCast updates itself in place. Needs macOS 26 or later.',
