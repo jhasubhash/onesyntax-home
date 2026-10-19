@@ -205,6 +205,19 @@ export const details = {
         flip: true,
       },
       {
+        id: 'ai',
+        kicker: 'AI',
+        title: 'Claude, right in the page',
+        body: 'Press ⌘J or type /ai and an assistant opens beside the page, already reading it. Answers go into the page as real blocks.',
+        bullets: [
+          'One-click prompts: summarize, fix spelling and grammar, continue writing, translate, pull out to-dos or outline. On a block: improve, shorten, explain or comment code, or turn it into LaTeX.',
+          'Ask anything, or turn on Ask my notes for answers from across the whole space.',
+          'Save your own prompts, and pick up past chats from the history.',
+          'Runs on Claude Opus 5.5 by default, with your own Anthropic API key.',
+        ],
+        media: { type: 'img', src: '/onepaper/assistant.png', alt: 'The Claude assistant open beside a paper-notes page, with prompt suggestions', w: 1440, h: 900 },
+      },
+      {
         id: 'look',
         kicker: 'Design',
         title: 'Every page in its own colour',
