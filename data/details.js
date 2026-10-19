@@ -1,6 +1,6 @@
-// Long-form content for the dedicated /onecast and /oneprompt pages.
+// Long-form content for the dedicated /onecast, /onepaper and /oneprompt pages.
 // Each feature: { id, kicker, title, body, bullets?, media, flip? }
-// media: { type: 'img' | 'video' | 'imgs', ... }
+// media: { type: 'img' | 'video' | 'imgs', ... }; { type: 'phones', shots: [...] } shows phone screenshots in a row
 export const details = {
   onecast: {
     heroNote: 'Built with SwiftUI and AppKit. Zero third-party dependencies, no Electron, no telemetry, under 100 MB of RAM.',
@@ -141,6 +141,117 @@ export const details = {
       'Or grab a DMG from Releases. Every build is signed with a Developer ID and notarized by Apple, and OneCast updates itself in place. Needs macOS 26 or later.',
     privacy:
       'Nothing is asked for up front. Accessibility is the main permission (paste, snippets, window management), requested the first time a feature needs it. Snippet keystrokes are matched locally, never stored and never sent anywhere.',
+  },
+
+  onepaper: {
+    heroNote: 'Native SwiftUI on Mac, iPad and iPhone. Your notes live on your devices and in your own iCloud; there is no OnePaper server.',
+    stats: [
+      ['13', 'page colours'],
+      ['20', 'code languages'],
+      ['Mac · iPad · iPhone', 'one app'],
+      ['iCloud', 'private sync'],
+    ],
+    features: [
+      {
+        id: 'editor',
+        kicker: 'Editor',
+        title: 'A block editor that keeps up with you',
+        body: 'Write in blocks the way you think: text, headings, lists, to-dos, toggles, quotes, callouts, images and nested pages. Type / for any of them.',
+        bullets: [
+          'Markdown as you type: # , - , [] and ``` turn into blocks, and **bold**, `code`, ==highlight==, $math$ and #tags style inline. The markers hide when you leave the line.',
+          '[[Page]] links with autocomplete, and backlinks at the bottom of every page.',
+          'Paste a link as plain text, a bookmark card or an embed. YouTube, Vimeo, Loom, Spotify and Figma play right in the page.',
+          'Nest with Tab, drag blocks to reorder, and open pages side by side in tabs.',
+        ],
+        media: { type: 'img', src: '/onepaper/editor-attention.png', alt: 'A paper-notes page with a callout, an arXiv card, display math and Python code', w: 1440, h: 900 },
+      },
+      {
+        id: 'code',
+        kicker: 'Code & ML',
+        title: 'Made for code, math and experiments',
+        body: 'Engineering notes are full of code, formulas and results. OnePaper treats them as first-class blocks, not pasted text.',
+        bullets: [
+          'Syntax highlighting for 20 languages, including Python, Swift, Rust, Go, C++, CUDA, SQL and YAML, with smart indent and a copy button.',
+          'LaTeX display blocks and inline $…$ formulas, rendered natively.',
+          'Tables for runs and benchmarks, and Collections: databases with typed properties and Table, Board, Gallery and List views.',
+          'Templates for paper notes, experiment logs, bug investigations and design docs.',
+        ],
+        media: { type: 'img', src: '/onepaper/editor-lora.png', alt: 'An experiment log with a YAML config, a LaTeX formula and a results table', w: 1440, h: 900 },
+        flip: true,
+      },
+      {
+        id: 'whiteboards',
+        kicker: 'Whiteboards',
+        title: 'Think on a whiteboard',
+        body: 'A full Excalidraw canvas, bundled and working offline. Sketch an architecture, a training loop or a state machine next to the notes that explain it.',
+        bullets: [
+          'Shapes, arrows, freehand and Apple Pencil, with hand-drawn fonts and the Excalidraw library.',
+          'Whiteboards are pages: they live in folders, show up in search and appear as thumbnail cards.',
+          'Embed one in a page with /whiteboard. Export as PNG, SVG or .excalidraw.',
+        ],
+        media: { type: 'img', src: '/onepaper/whiteboard.png', alt: 'A Transformer architecture diagram on an Excalidraw whiteboard', w: 1440, h: 900 },
+      },
+      {
+        id: 'tasks',
+        kicker: 'Tasks',
+        title: 'Tasks, wherever you wrote them',
+        body: 'Write to-dos on any page. The Tasks view gathers all of them: Today with overdue, Upcoming by day, All by page, and a Done logbook.',
+        bullets: [
+          'Type @ in a to-do for a date: @today, @tomorrow 9am, @next fri.',
+          'Quick add parses dates too: "review PR tomorrow 10am".',
+          'Sync dated to-dos to Apple Reminders (two-way) or Todoist, or send one to Things 3.',
+        ],
+        media: { type: 'img', src: '/onepaper/tasks.png', alt: 'Tasks gathered from every page onto page-coloured cards', w: 1440, h: 900 },
+        flip: true,
+      },
+      {
+        id: 'look',
+        kicker: 'Design',
+        title: 'Every page in its own colour',
+        body: 'Thirteen page colours, from Paper and Mint to Notebook dot grid, Blueprint, Midnight and Terminal. Choose Sans, Serif, Rounded or Mono, add a cover, and pick from nine accent colours. Light, dark or follow the system.',
+        media: { type: 'img', src: '/onepaper/library-dark.png', alt: 'The OnePaper library in dark mode', w: 1440, h: 900 },
+        full: true,
+      },
+      {
+        id: 'iphone',
+        kicker: 'iPhone & iPad',
+        title: 'The same notes everywhere',
+        body: 'Pages, whiteboards and tasks sync through your own iCloud account, so your Mac, iPad and iPhone always show the same library. Nothing goes through a server of mine.',
+        media: {
+          type: 'phones',
+          shots: [
+            { src: '/onepaper/iphone-library.png', alt: 'The library on iPhone', w: 603, h: 1311 },
+            { src: '/onepaper/iphone-editor.png', alt: 'A page on iPhone', w: 603, h: 1311 },
+            { src: '/onepaper/iphone-dark.png', alt: 'A code page on iPhone in dark mode', w: 603, h: 1311 },
+          ],
+        },
+        full: true,
+      },
+    ],
+    grid: [
+      ['🗂️', 'Spaces', 'Work, Research, Personal: each with its own pages, folders, tags and tasks. ⌃1…⌃9 to switch.'],
+      ['📑', 'Tabs', 'Open pages side by side. Show tabs at the top, auto-hidden, or in the sidebar.'],
+      ['📅', 'Calendar', 'Daily notes as journal cards, with previous and next day navigation.'],
+      ['⌘', 'Quick open', '⌘K jumps to any page or searches every word you have written.'],
+      ['✨', 'AI writing', 'Claude continues, summarizes, fixes grammar, explains code, converts to LaTeX, or answers from your notes.'],
+      ['🔗', 'Links and embeds', 'Bookmark cards for arXiv and GitHub, and players for YouTube, Vimeo, Loom, Spotify and Figma.'],
+      ['📊', 'Collections', 'Databases with typed properties, grouped tables, boards and galleries.'],
+      ['🏷️', 'Tags and folders', 'Folders with icons and colours, pinned tags, starred pages and subpages.'],
+      ['📤', 'Export', 'Markdown, standalone HTML and PDF, plus Markdown import.'],
+    ],
+    steps: [
+      ['Install', 'Download the DMG, drag OnePaper to Applications, and open it.'],
+      ['Write', 'Press ⌘N for a new doc, then type / to pick any block.'],
+      ['Link', 'Type [[ to link another page. Backlinks appear on the other side.'],
+      ['Plan', 'Type @tomorrow in a to-do, then open Tasks to see it scheduled.'],
+    ],
+    downloads: [
+      ['Mac · macOS 26 or later', 'https://github.com/jhasubhash/onepaper-releases/releases/latest', 'Download for Mac', 'DMG'],
+    ],
+    installNote:
+      'Signed with a Developer ID and notarized by Apple, and OnePaper updates itself in place. On iPhone and iPad (iOS 26 or later) it is in beta on TestFlight.',
+    privacy:
+      'Your notes stay on your devices and in your own iCloud account. AI features talk to Claude only when you use them, with your own API key or Claude plan.',
   },
 
   oneprompt: {

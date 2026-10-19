@@ -1,4 +1,4 @@
-/* Dedicated product pages (/onecast, /oneprompt) */
+/* Dedicated product pages (/onecast, /onepaper, /oneprompt) */
 .nav nav a.on { color: var(--text); }
 .links a.more-link { color: var(--accent); }
 .detail { max-width: 1120px; }
@@ -125,3 +125,11 @@ kbd { font: 600 15px ui-monospace, "SF Mono", Menlo, monospace; color: var(--acc
 
 .p-cta .cmd code { white-space: normal; word-break: break-all; font-size: 12.5px; }
 .feat.full .feat-media > img.frame { max-width: 920px; margin: 0 auto; }
+
+/* OnePaper: phone screenshots in a row, and the download button standing in for a brew command */
+.phones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; max-width: 820px; margin: 0 auto; }
+.phones .frame { border-radius: 28px; }
+.cmd.dl { color: var(--text); }
+.cmd.dl code { font-family: inherit; font-size: 14px; font-weight: 600; }
+.cmd.dl .prompt { font-weight: 700; }
+@media (max-width: 600px) { .phones { gap: 12px; } .phones .frame { border-radius: 16px; } }

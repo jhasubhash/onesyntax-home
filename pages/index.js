@@ -39,7 +39,7 @@ export default function Home() {
         </section>
         {projects.map((p, i) => (
           <Fragment key={p.id}>
-            <Project p={p} flip={i % 2 === 1} />
+            <Project p={p} flip={p.flip ?? i % 2 === 1} />
             {p.dock && (
               <div className="dock-divider" style={{ '--accent': p.accent }}>
                 <DockWidgets dock={p.dock} placement="above" hint={p.dock.hint} />

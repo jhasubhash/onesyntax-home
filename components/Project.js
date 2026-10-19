@@ -1,4 +1,5 @@
 import CopyCommand from './CopyCommand'
+import DownloadButton from './DownloadButton'
 import AutoVideo from './AutoVideo'
 import SideDock from './SideDock'
 import NotificationScatter from './NotificationScatter'
@@ -26,7 +27,7 @@ export default function Project({ p, flip }) {
             <li key={t}><b>{t}</b><span>{d}</span></li>
           ))}
         </ul>
-        <CopyCommand command={p.install} />
+        {p.install ? <CopyCommand command={p.install} /> : <DownloadButton {...p.download} />}
         <div className="links">
           <a className="more-link" href={`/${p.id}`}>Explore {p.name} &rarr;</a>
           {p.links.map(([label, href]) => (

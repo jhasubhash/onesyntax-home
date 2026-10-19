@@ -58,6 +58,34 @@ export const projects = [
     ],
   },
   {
+    id: 'onepaper',
+    name: 'OnePaper',
+    tagline: 'Beautiful notes for engineers.',
+    description:
+      'A Craft-style block editor for Mac, iPad and iPhone, made for code, math, experiments and whiteboards. Every page is a sheet in its own colour, and everything syncs privately through your own iCloud.',
+    platform: 'macOS · iOS 26+',
+    stack: ['Swift 6', 'SwiftUI', 'SwiftData + CloudKit'],
+    license: 'Free',
+    accent: '#3fbf9b',
+    // No Homebrew cask yet: a download button stands in for the install command.
+    download: { href: 'https://github.com/jhasubhash/onepaper-releases/releases/latest', label: 'Download for Mac', note: 'DMG' },
+    flip: false,
+    features: [
+      ['A block editor that keeps up', 'Slash commands, Markdown as you type, [[links]] with backlinks, and links that embed.'],
+      ['Made for code and ML', 'Highlighted code in 20 languages, LaTeX math, tables and databases.'],
+      ['Whiteboards built in', 'A full Excalidraw canvas, offline, with Apple Pencil and hand-drawn fonts.'],
+      ['Tasks wherever you wrote them', 'Every to-do in one place, with dates you type the way you say them.'],
+    ],
+    images: [
+      { src: '/onepaper/library.png', alt: 'The OnePaper library: page previews as cards in their page colours', w: 1440, h: 900 },
+      { src: '/onepaper/editor-attention.png', alt: 'A paper-notes page with display math and Python code', w: 1440, h: 900 },
+      { src: '/onepaper/whiteboard.png', alt: 'A Transformer diagram on a whiteboard', w: 1440, h: 900 },
+    ],
+    links: [
+      ['Releases', 'https://github.com/jhasubhash/onepaper-releases/releases'],
+    ],
+  },
+  {
     id: 'oneprompt',
     name: 'OnePrompt',
     tagline: 'A terminal drawn like an ink painting.',
@@ -67,6 +95,8 @@ export const projects = [
     stack: ['Rust', 'wgpu'],
     license: 'Apache 2.0',
     accent: '#e0584f',
+    // Its video sits on the left and reaches into the margin (see .big-media).
+    flip: true,
     install: 'brew install --cask jhasubhash/tap/oneprompt',
     features: [
       ['Written by hand', 'New text is traced along each letter’s pen path as the ink bleeds and dries.'],

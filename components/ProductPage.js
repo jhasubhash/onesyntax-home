@@ -1,6 +1,7 @@
 import Layout from './Layout'
 import Reveal from './Reveal'
 import CopyCommand from './CopyCommand'
+import DownloadButton from './DownloadButton'
 import AutoVideo from './AutoVideo'
 import DockWidgets from './DockWidgets'
 import ThemeTabs from './ThemeTabs'
@@ -23,7 +24,7 @@ function Hero({ p, d }) {
         <p className="p-tag">{p.tagline}</p>
         <p className="p-desc">{p.description}</p>
         <div className="p-cta">
-          <CopyCommand command={p.install} />
+          {p.install ? <CopyCommand command={p.install} /> : <DownloadButton {...p.download} />}
           <div className="links">
             {p.links.map(([label, href]) => <a key={href} href={href} target="_blank" rel="noopener noreferrer">{label} &rarr;</a>)}
           </div>
@@ -56,7 +57,12 @@ function Feature({ f, p, dock }) {
         )}
       </Reveal>
       <Reveal className={`feat-media${m && m.narrow ? ' narrow' : ''}`} delay={100}>
-        {m && <img className="frame" src={m.src} alt={m.alt} width={m.w} height={m.h} loading="lazy" />}
+        {m && m.type === 'phones' && (
+          <div className="phones">
+            {m.shots.map((s) => <img key={s.src} className="frame" src={s.src} alt={s.alt} width={s.w} height={s.h} loading="lazy" />)}
+          </div>
+        )}
+        {m && m.type !== 'phones' && <img className="frame" src={m.src} alt={m.alt} width={m.w} height={m.h} loading="lazy" />}
         {f.clip && <Clip base={f.clip} label={f.title} />}
         {f.widgets && (
           <div className="widget-stage" style={{ '--accent': p.accent }}>
@@ -75,8 +81,11 @@ function Install({ d, p }) {
         <p className="kicker">Install</p>
         <h2>Get {p.name}</h2>
         <div className="cmds">
-          {d.install.map(([label, cmd]) => (
+          {d.install && d.install.map(([label, cmd]) => (
             <div key={cmd}><span className="cmd-label">{label}</span><CopyCommand command={cmd} /></div>
+          ))}
+          {d.downloads && d.downloads.map(([label, href, text, note]) => (
+            <div key={href}><span className="cmd-label">{label}</span><DownloadButton href={href} label={text} note={note} /></div>
           ))}
         </div>
         <p className="muted">{d.installNote}</p>
@@ -89,8 +98,9 @@ function Install({ d, p }) {
   )
 }
 
+// The next app in the list, wrapping around.
 function Other({ id }) {
-  const o = projects.find((x) => x.id !== id)
+  const o = projects[(projects.findIndex((x) => x.id === id) + 1) % projects.length]
   return (
     <a href={`/${o.id}`} className="other" style={{ '--accent': o.accent }}>
       <span>Also from OneSyntax</span>
@@ -139,6 +149,39 @@ export function OneCastPage() {
         </section>
         <Install d={d} p={p} />
         <Other id="onecast" />
+      </main>
+    </Layout>
+  )
+}
+
+export function OnePaperPage() {
+  const p = projects.find((x) => x.id === 'onepaper')
+  const d = details.onepaper
+  return (
+    <Layout active="onepaper" accent={p.accent} title="OnePaper: beautiful notes for engineers"
+      description="A Craft-style block editor for Mac, iPad and iPhone, made for code, math, experiments and whiteboards, synced through iCloud.">
+      <main className="detail">
+        <Hero p={p} d={d} />
+        {d.features.map((f) => <Feature key={f.id} f={f} p={p} />)}
+        <section id="more" className="more">
+          <Reveal><p className="kicker">Details</p><h2>And everything else</h2></Reveal>
+          <div className="grid">
+            {d.grid.map(([ic, t, b], i) => (
+              <Reveal key={t} className="gcard" delay={(i % 3) * 70}><span className="ic">{ic}</span><b>{t}</b><span>{b}</span></Reveal>
+            ))}
+          </div>
+        </section>
+        <section className="steps-s">
+          <Reveal><p className="kicker">Quick start</p><h2>Your first page in a minute</h2></Reveal>
+          <ol className="steps">
+            {d.steps.map(([t, b], i) => (
+              <Reveal as="li" key={t} delay={i * 80}><i>{i + 1}</i><b>{t}</b><span>{b}</span></Reveal>
+            ))}
+          </ol>
+          <Reveal><p className="muted note">{d.privacy}</p></Reveal>
+        </section>
+        <Install d={d} p={p} />
+        <Other id="onepaper" />
       </main>
     </Layout>
   )
