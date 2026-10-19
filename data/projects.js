@@ -67,8 +67,7 @@ export const projects = [
     stack: ['Swift 6', 'SwiftUI', 'SwiftData + CloudKit'],
     license: 'Free',
     accent: '#3fbf9b',
-    // No Homebrew cask yet: a download button stands in for the install command.
-    download: { href: 'https://github.com/jhasubhash/onepaper-releases/releases/latest', label: 'Download for Mac', note: 'DMG' },
+    install: 'brew install --cask jhasubhash/tap/onepaper',
     flip: false,
     features: [
       ['A block editor that keeps up', 'Slash commands, Markdown as you type, [[links]] with backlinks, and links that embed.'],

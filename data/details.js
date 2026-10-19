@@ -245,8 +245,9 @@ export const details = {
       ['Link', 'Type [[ to link another page. Backlinks appear on the other side.'],
       ['Plan', 'Type @tomorrow in a to-do, then open Tasks to see it scheduled.'],
     ],
+    install: [['Mac · macOS 26 or later', 'brew install --cask jhasubhash/tap/onepaper']],
     downloads: [
-      ['Mac · macOS 26 or later', 'https://github.com/jhasubhash/onepaper-releases/releases/latest', 'Download for Mac', 'DMG'],
+      ['Or download the DMG', 'https://github.com/jhasubhash/onepaper-releases/releases/latest', 'Download for Mac', 'DMG'],
     ],
     installNote:
       'Signed with a Developer ID and notarized by Apple, and OnePaper updates itself in place. On iPhone and iPad (iOS 26 or later) it is in beta on TestFlight.',
