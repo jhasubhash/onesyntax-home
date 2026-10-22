@@ -159,7 +159,7 @@ export function OnePaperPage() {
   const d = details.onepaper
   return (
     <Layout active="onepaper" accent={p.accent} title="OnePaper: beautiful notes for engineers"
-      description="A Craft-style block editor for Mac, iPad and iPhone, made for code, math, experiments and whiteboards, synced through iCloud.">
+      description="A Craft-style block editor for Mac, iPad and iPhone, made for code, math, papers and whiteboards, with a PDF reader for highlights and notes, synced through iCloud.">
       <main className="detail">
         <Hero p={p} d={d} />
         {d.features.map((f) => <Feature key={f.id} f={f} p={p} />)}
