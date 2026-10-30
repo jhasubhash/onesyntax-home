@@ -61,8 +61,9 @@ export const projects = [
     id: 'onepaper',
     name: 'OnePaper',
     tagline: 'Beautiful notes for engineers.',
+    badge: 'New: Scenes',
     description:
-      'A Craft-style block editor for Mac, iPad and iPhone, made for code, math, papers and whiteboards. Read and annotate PDFs right beside your notes. Every page is a sheet in its own colour, and everything syncs privately through your own iCloud.',
+      'A Craft-style block editor for Mac, iPad and iPhone, made for code, math, papers and whiteboards. Now with Scenes: 3D architecture diagrams you can present like a film, or drop into a slide deck. Every page is a sheet in its own colour, and everything syncs privately through your own iCloud.',
     platform: 'macOS · iOS 26+',
     stack: ['Swift 6', 'SwiftUI', 'SwiftData + CloudKit'],
     license: 'Free',
@@ -70,15 +71,15 @@ export const projects = [
     install: 'brew install --cask jhasubhash/tap/onepaper',
     flip: false,
     features: [
-      ['A block editor that keeps up', 'Slash commands, Markdown as you type, [[links]] with backlinks, and links that embed.'],
-      ['Made for code and ML', 'Highlighted code in 20 languages, LaTeX math, tables and databases.'],
-      ['Papers and PDFs', 'Paste an arXiv link and get the PDF. Highlight, box figures, pin notes and send them to the page.'],
-      ['Whiteboards and tasks', 'A full Excalidraw canvas, offline, and every to-do gathered in one place.'],
+      ['Scenes, in 3D', 'Architecture on paper boards, with packets flowing, lit by your page theme, presented shot by shot.'],
+      ['A block editor that keeps up', 'Slash commands, Markdown as you type, [[links]] with backlinks, comments and embeds.'],
+      ['Made for code and ML', 'Highlighted code in 20 languages, LaTeX math, Mermaid, tables and databases.'],
+      ['Papers, whiteboards and tasks', 'Annotate PDFs beside your notes, sketch on Excalidraw, and gather every to-do.'],
     ],
+    video: { src: '/onepaper/scenes-hero.mp4', poster: '/onepaper/scenes-hero.jpg', label: 'A OnePaper scene turning from 2D to free 3D', w: 1280, h: 720 },
     images: [
       { src: '/onepaper/library.png', alt: 'The OnePaper library: page previews as cards in their page colours', w: 1440, h: 900 },
       { src: '/onepaper/pdf-reader.png', alt: 'The PDF reader with highlights, a boxed figure and the Notes pane', w: 1440, h: 900 },
-      { src: '/onepaper/whiteboard.png', alt: 'A Transformer diagram on a whiteboard', w: 1440, h: 900 },
     ],
     links: [
       ['Releases', 'https://github.com/jhasubhash/onepaper-releases/releases'],

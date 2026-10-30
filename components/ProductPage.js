@@ -31,7 +31,7 @@ function Hero({ p, d }) {
         </div>
       </Reveal>
       <Reveal className="p-hero-media" delay={120}>
-        {p.video ? <AutoVideo {...p.video} /> : <img src={p.images[0].src} alt={p.images[0].alt} width={p.images[0].w} height={p.images[0].h} />}
+        {d.heroVideo || p.video ? <AutoVideo {...(d.heroVideo || p.video)} /> : <img src={p.images[0].src} alt={p.images[0].alt} width={p.images[0].w} height={p.images[0].h} />}
       </Reveal>
       <Reveal className="stats" delay={200}>
         {d.stats.map(([n, l]) => <div key={l}><b>{n}</b><span>{l}</span></div>)}
@@ -63,12 +63,28 @@ function Feature({ f, p, dock }) {
           </div>
         )}
         {m && m.type !== 'phones' && <img className="frame" src={m.src} alt={m.alt} width={m.w} height={m.h} loading="lazy" />}
-        {f.clip && <Clip base={f.clip} label={f.title} />}
+        {f.clip && <Clip base={f.clip} label={f.title} size={f.clipSize} />}
         {f.widgets && (
           <div className="widget-stage" style={{ '--accent': p.accent }}>
             <DockWidgets dock={dock} placement="above" hint="Click a widget" />
           </div>
         )}
+      </Reveal>
+    </section>
+  )
+}
+
+// The full demo, with sound: plays only when asked.
+function Demo({ v }) {
+  return (
+    <section id="demo" className="demo-s">
+      <Reveal>
+        <p className="kicker">{v.kicker}</p>
+        <h2>{v.title}</h2>
+        <p className="lede">{v.body}</p>
+      </Reveal>
+      <Reveal delay={100}>
+        <video className="frame demo-video" src={v.src} poster={v.poster} width={v.w} height={v.h} controls playsInline preload="none" />
       </Reveal>
     </section>
   )
@@ -159,9 +175,10 @@ export function OnePaperPage() {
   const d = details.onepaper
   return (
     <Layout active="onepaper" accent={p.accent} title="OnePaper: beautiful notes for engineers"
-      description="A Craft-style block editor for Mac, iPad and iPhone, made for code, math, papers and whiteboards, with a PDF reader for highlights and notes, synced through iCloud.">
+      description="A Craft-style block editor for Mac, iPad and iPhone, made for code, math, papers and whiteboards, with 3D scenes you can present or put in a slide deck, synced through iCloud.">
       <main className="detail">
         <Hero p={p} d={d} />
+        {d.demo && <Demo v={d.demo} />}
         {d.features.map((f) => <Feature key={f.id} f={f} p={p} />)}
         <section id="more" className="more">
           <Reveal><p className="kicker">Details</p><h2>And everything else</h2></Reveal>

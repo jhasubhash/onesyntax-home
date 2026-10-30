@@ -133,3 +133,8 @@ kbd { font: 600 15px ui-monospace, "SF Mono", Menlo, monospace; color: var(--acc
 .cmd.dl code { font-family: inherit; font-size: 14px; font-weight: 600; }
 .cmd.dl .prompt { font-weight: 700; }
 @media (max-width: 600px) { .phones { gap: 12px; } .phones .frame { border-radius: 16px; } }
+
+/* OnePaper: the full demo, with sound */
+.demo-s { padding: 72px 0 88px; border-top: 1px solid var(--line); text-align: center; scroll-margin-top: 50px; }
+.demo-s .lede { margin: 0 auto 30px; }
+.demo-video { display: block; width: 100%; height: auto; background: #000; }
